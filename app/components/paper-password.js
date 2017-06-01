@@ -1,0 +1,1 @@
+export { default } from 'paper-password/components/paper-password';

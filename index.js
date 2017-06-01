@@ -2,5 +2,8 @@
 'use strict';
 
 module.exports = {
-  name: 'paper-password'
+  name: 'paper-password',
+  isDevelopingAddon() {
+  	return true;
+  }
 };
