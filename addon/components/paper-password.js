@@ -5,7 +5,29 @@ import layout from 'ember-paper/templates/components/paper-input';
 export default PaperInput.extend({
 	layout,
 
+	reveal: true,
+
 	type: 'password',
+
+	didInsertElement() {
+		if(!this.get('reveal')) { return; }
+
+		if (this.isDestroyed) { return; }
+
+		this._super(...arguments);
+
+		this.attachIcon();
+	},
+
+	willDestroyElement() {
+		if(!this.get('reveal')) { return; }
+
+		if (this.isDestroyed) { return; }
+
+		this._super(...arguments);
+
+		this.unbindIcon();
+	},
 
 	bindEvent() {
 		let namespace = '.passwordReveal';
@@ -15,18 +37,11 @@ export default PaperInput.extend({
 		return bindEvent;
 	},
 
-	didInsertElement() {
+	unbindIcon() {
 		if (this.isDestroyed) { return; }
 
-		this._super(...arguments);
-		this.attachIcon();
-	},
-
-	willDestroyElement() {
-		if (this.isDestroyed) { return; }
-
-		this._super(...arguments);
 		let bindEvent = this.bindEvent();
+
 		this.$('input').next('i').unbind(bindEvent);
 	},
 

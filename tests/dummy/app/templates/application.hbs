@@ -1,8 +1,19 @@
-<h2 id="title">Welcome to Ember</h2>
+<h2 id='title'>Welcome to Ember</h2>
 
 {{paper-password
 	value=password
-	label="password"
+	class='flex-100'
+	label='password'
+	onChange=(action (mut password))
+}}
+
+<br/><br/>
+
+{{paper-password
+	reveal=false
+	value=password
+	class='flex-100'
+	label='password'
 	onChange=(action (mut password))
 }}
 
