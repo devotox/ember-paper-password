@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import $ from 'jquery';
 import PaperInput from 'ember-paper/components/paper-input';
 import layout from 'ember-paper/templates/components/paper-input';
 
@@ -44,18 +44,18 @@ export default PaperInput.extend({
 		let _class = (_classes) => [classes, _classes].join(' ');
 
 		let _style = () => ({
-			right: '0',
 			zIndex: '1',
+			right: '2px',
 			top: '0.4em',
+			marginRight: '0',
 			fontSize: '1.4em',
 			cursor: 'pointer',
-			position: 'absolute',
-			marginRight: '0.75rem'
+			position: 'absolute'
 		});
 
 		let toggleEye = ($element, $icon) => {
 			let type = $element.attr('type');
-			let types = ['password', 'text']
+			// let types = ['password', 'text']
 			let defaultType = 'password';
 			let newType = 'text';
 
