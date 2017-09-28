@@ -1,6 +1,6 @@
 {
   "name": "paper-password",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Ember Paper Password addon",
   "keywords": [
     "ember-addon"
