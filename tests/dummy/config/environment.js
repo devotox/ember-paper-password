@@ -45,7 +45,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.locationType = 'hash';
-    ENV.rootURL = '/paper-password/';
+    ENV.rootURL = '/ember-paper-password/';
     // here you can enable a production-specific feature
   }
 

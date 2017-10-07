@@ -58,6 +58,6 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
-    "demoURL": "https://devotox.github.io/paper-password"
+    "demoURL": "https://devotox.github.io/ember-paper-password"
   }
 }
