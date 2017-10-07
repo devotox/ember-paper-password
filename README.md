@@ -1,26 +1,17 @@
 # paper-password
 
-This README outlines the details of collaborating on this Ember addon.
+[![Ember Observer Score](http://emberobserver.com/badges/paper-password.svg)](http://emberobserver.com/addons/paper-password)
+[![Build Status](https://travis-ci.org/devotox/paper-password.svg)](http://travis-ci.org/devotox/ember-paper-password)
+[![Coverage Status](https://coveralls.io/repos/github/devotox/mber-loggly/badge.svg)](https://coveralls.io/github/devotox/empber-paper-password)
+[![NPM Version](https://badge.fury.io/js/paper-password.svg)](http://badge.fury.io/js/paper-password)
+[![NPM Downloads](https://img.shields.io/npm/dm/paper-password.svg)](https://www.npmjs.org/package/paper-password)
+[![Greenkeeper](https://badges.greenkeeper.io/devotox/ember-paper-password.svg)](https://greenkeeper.io/)
+
+## Description
+Input addon for [Ember Paper](https://github.com/miguelcobain/ember-paper)
 
 ## Installation
+* `ember install paper-password`
 
-* `git clone <repository-url>` this repository
-* `cd paper-password`
-* `npm install`
-
-## Running
-
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-
-## Running Tests
-
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
-
-## Building
-
-* `ember build`
-
-For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+#### License
+MIT license.
