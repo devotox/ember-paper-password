@@ -10,13 +10,13 @@ test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{paper-password}}`);
+  this.render(hbs`{{paper-password onChange=null}}`);
 
   assert.equal(this.$().text().trim(), '');
 
   // Template block usage:
   this.render(hbs`
-    {{#paper-password}}
+    {{#paper-password onChange=null}}
       template block text
     {{/paper-password}}
   `);
