@@ -90,7 +90,7 @@ export default PaperInput.extend({
 	},
 
 	unbindIcon() {
-		if (this.isDestroyed) {
+		if (!$ || this.isDestroyed || this.isDestroying) {
 			return;
 		}
 
@@ -100,7 +100,7 @@ export default PaperInput.extend({
 	},
 
 	attachIcon() {
-		if (this.isDestroyed) {
+		if (!$ || this.isDestroyed || this.isDestroying) {
 			return;
 		}
 
@@ -114,10 +114,12 @@ export default PaperInput.extend({
 
 		let _class = (_classes) => [classes, _classes].join(' ');
 
+		let right = this.get('iconRight') ? '1.5em' : '2px'
+
 		let _style = () => ({
 			zIndex: '1',
-			right: '2px',
 			top: '0.4em',
+			right: right,
 			marginRight: '0',
 			fontSize: '1.4em',
 			cursor: 'pointer',
