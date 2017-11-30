@@ -3,6 +3,7 @@
 
 module.exports = {
 	name: 'paper-password',
+
 	options: {
 		babel: {
 			plugins: [
@@ -15,5 +16,9 @@ module.exports = {
 			includePolyfill: true,
 			disableDebugTooling: true
 		}
+	},
+
+	included: function(/* app */) {
+		this._super.included.apply(this, arguments);
 	}
 };
