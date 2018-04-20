@@ -18,7 +18,7 @@ Installation
 ------------------------------------------------------------------------------
 
 ```
-ember install ember-paper-password
+ember install ember-paper-password2
 ```
 
 
