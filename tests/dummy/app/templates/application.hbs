@@ -2,8 +2,8 @@
 
 {{paper-password
 	value=password
-	class='layout-fill flex-50'
 	label='password'
+	class='layout-fill flex-50'
 	onChange=(action (mut password))
 }}
 
@@ -12,7 +12,18 @@
 {{paper-password
 	reveal=false
 	value=password
-	class='layout-fill flex-50'
 	label='password'
+	class='layout-fill flex-50'
+	onChange=(action (mut password))
+}}
+
+<br/><br/>
+
+{{paper-password
+	reveal=true
+	value=password
+	label='password'
+	showPasswordStrength=false
+	class='layout-fill flex-50'
 	onChange=(action (mut password))
 }}
