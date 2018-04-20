@@ -13,7 +13,7 @@ import layout from '../templates/components/paper-password';
 export default PaperInput.extend({
 	layout,
 
-	errors: [],
+	errors: [], // eslint-disable-line
 
 	reveal: true,
 
@@ -21,15 +21,15 @@ export default PaperInput.extend({
 
 	type: 'password',
 
-	customValidations: [],
+	customValidations: [], // eslint-disable-line
 
-	passwordStrength: strength,
+	passwordStrength: strength, // eslint-disable-line
 
 	showPasswordStrength: true,
 
 	strengthLabel: 'Password Strength',
 
-	strengthLevels: ['Very Poor', 'Poor', 'Fair', 'Good', 'Excellent'],
+	strengthLevels: ['Very Poor', 'Poor', 'Fair', 'Good', 'Excellent'], // eslint-disable-line
 
 	didInsertElement() {
 		if (!this.get('reveal')) {
