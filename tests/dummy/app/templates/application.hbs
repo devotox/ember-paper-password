@@ -1,29 +1,31 @@
-<h2 id='title'>Paper Password</h2>
-
-{{paper-password
-	value=password
-	label='password'
-	class='layout-fill flex-50'
-	onChange=(action (mut password))
-}}
-
-<br/><br/>
+<h2 id="title">Ember Paper Password</h2>
 
 {{paper-password
 	reveal=false
+	minStrength=0
 	value=password
-	label='password'
-	class='layout-fill flex-50'
+	label="password"
+	class="layout-fill flex-50"
 	onChange=(action (mut password))
 }}
 
-<br/><br/>
+<br><br>
 
 {{paper-password
 	reveal=true
 	value=password
-	label='password'
+	label="password"
+	class="layout-fill flex-50"
+	onChange=(action (mut password))
+}}
+
+<br><br>
+
+{{paper-password
+	reveal=true
+	value=password
+	label="password"
 	showPasswordStrength=false
-	class='layout-fill flex-50'
+	class="layout-fill flex-50"
 	onChange=(action (mut password))
 }}

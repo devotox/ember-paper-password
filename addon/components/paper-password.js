@@ -1,8 +1,8 @@
-import $ from 'jquery';
-
-import strength from 'password-strength';
+import { inject } from '@ember/service';
 
 import { computed } from '@ember/object';
+
+import { dasherize } from '@ember/string';
 
 import PaperInput from 'ember-paper/components/paper-input';
 
@@ -23,7 +23,7 @@ export default PaperInput.extend({
 
 	customValidations: [], // eslint-disable-line
 
-	passwordStrength: strength, // eslint-disable-line
+	passwordStrength: inject(), // eslint-disable-line
 
 	showPasswordStrength: true,
 
@@ -31,14 +31,42 @@ export default PaperInput.extend({
 
 	strengthLevels: ['Very Poor', 'Poor', 'Fair', 'Good', 'Excellent'], // eslint-disable-line
 
-	didInsertElement() {
-		if (!this.get('reveal')) {
-			return;
-		}
+	iconClasses: computed(function() {
+		return {
+			open: 'fa-eye',
+			closed: 'fa-eye-slash',
+			default: 'fa password-reveal'
+		};
+	}),
 
-		if (this.isDestroyed) {
-			return;
-		}
+	strength: computed('value', async function() {
+		let value = this.get('value');
+		let defaultStrength = { score: 0 };
+		let passwordStrength = this.get('passwordStrength');
+		return !value ? defaultStrength : passwordStrength.strength(value);
+	}),
+
+	strengthValue: computed('value', async function() {
+		let strength = await this.get('strength');
+		return strength.score / 4 * 100;
+	}),
+
+	strengthLevel: computed('value', async function() {
+		let strength = await this.get('strength');
+		return this.get('strengthLevels')[strength.score];
+	}),
+
+	strengthWarning: computed('value', async function() {
+		let strength = await this.get('strength');
+		return strength.score < this.get('minStrength');
+	}),
+
+	shouldReturn() {
+		return !this.get('reveal') || this.isDestroyed || this.isDestroying
+	},
+
+	didInsertElement() {
+		if (this.shouldReturn()) { return; }
 
 		this._super(...arguments);
 
@@ -46,110 +74,86 @@ export default PaperInput.extend({
 	},
 
 	willDestroyElement() {
-		if (!this.get('reveal')) {
-			return;
-		}
-
-		if (this.isDestroyed) {
-			return;
-		}
+		if(this.shouldReturn()) { return; }
 
 		this._super(...arguments);
 
 		this.unbindIcon();
 	},
 
-	strength: computed('value', function() {
-		let value = this.get('value');
-		let defaultStrength = { score: 0 };
-		let passwordStrength = this.get('passwordStrength');
-		return !value ? defaultStrength : passwordStrength(value);
-	}),
+	iconConfig(icon) {
+		if(this.shouldReturn()) { return; }
+		
+		let iconClasses = this.get('iconClasses');
 
-	strengthValue: computed('value', function() {
-		let strength = this.get('strength');
-		return strength.score / 4 * 100;
-	}),
+		let input = this.element.querySelector('input');
 
-	strengthLevel: computed('value', function() {
-		let strength = this.get('strength');
-		return this.get('strengthLevels')[strength.score];
-	}),
+		icon = icon || this.element.querySelector('i.password-reveal');
 
-	strengthWarning: computed('value', function() {
-		let strength = this.get('strength');
-		return strength.score < this.get('minStrength');
-	}),
+		function toggleEye(input, icon) {
+			let newType = 'text';
+			let defaultType = 'password';
+			let type = input.getAttribute('type');
 
-	bindEvent() {
-		let namespace = '.passwordReveal';
+			let currentType = type === defaultType ? newType : defaultType;
+			input.setAttribute('type', currentType);
+
+			return type === defaultType ?
+				icon.setAttribute('class', `${iconClasses.default} ${iconClasses.open}`) :
+				icon.setAttribute('class', `${iconClasses.default} ${iconClasses.closed}`);
+		}
+
+		let bindFunction = this.get('bindFunction') 
+			|| this.set('bindFunction', function(event) {
+				event.stopImmediatePropagation();
+				toggleEye(input, icon);
+				return false;
+			});
+
 		let supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
-		let bindEvent = (supportsTouch ? 'touchstart' : 'click') + namespace;
+		let bindEvent =  supportsTouch ? 'touchstart' : 'click';
 
-		return bindEvent;
+		return { bindEvent, bindFunction, iconClasses, input, icon };
 	},
 
 	unbindIcon() {
-		if (!$ || this.isDestroyed || this.isDestroying) {
-			return;
-		}
+		if(this.shouldReturn()) { return; }
 
-		let bindEvent = this.bindEvent();
-
-		this.$('input').next('i').unbind(bindEvent);
+		let { 
+			icon,
+			bindEvent, bindFunction
+		} = this.iconConfig();
+		
+		icon.removeEventListener(bindEvent, bindFunction);
 	},
 
 	attachIcon() {
-		if (!$ || this.isDestroyed || this.isDestroying) {
-			return;
-		}
+		if(this.shouldReturn()) { return; }
 
-		let namespace = '.passwordReveal';
-		let supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
-		let bindEvent = (supportsTouch ? 'touchstart' : 'click') + namespace;
-
-		let open = 'fa-eye';
-		let closed = 'fa-eye-slash';
-		let classes = 'fa password-reveal';
-
-		let _class = (_classes) => [classes, _classes].join(' ');
-
-		let right = this.get('iconRight') ? '1.5em' : '2px'
-
-		let _style = () => ({
+		let _style = () => Object.entries({
 			zIndex: '1',
 			top: '0.4em',
-			right: right,
 			marginRight: '0',
 			fontSize: '1.4em',
 			cursor: 'pointer',
-			position: 'absolute'
-		});
+			position: 'absolute',
+			right: this.get('iconRight') ? '1.5em' : '2px'
+		}).map(([k, v]) => `${dasherize(k)}:${v}`).join(';')
 
-		let toggleEye = ($element, $icon) => {
-			let type = $element.attr('type');
-			let defaultType = 'password';
-			let newType = 'text';
+		let icon = document.createElement('i');
 
-			$element.attr('type', type === defaultType ? newType : defaultType);
+		let { 
+			iconClasses, input,
+			bindEvent, bindFunction
+		} = this.iconConfig(icon);
 
-			return type === defaultType ?
-				$icon.addClass(open).removeClass(closed) :
-				$icon.addClass(closed).removeClass(open);
-		};
 
-		let $this = this.$('input')
+		icon.setAttribute('style', _style(true));
 
-		let $icon = $('<i/>', {
-			'class': _class(closed)
-		}).css(_style());
+		input.insertAdjacentElement('afterend', icon);
 
-		$icon.bind(bindEvent, (e) => {
-			e.stopImmediatePropagation();
-			toggleEye($this, $icon);
-			return false;
-		});
+		icon.addEventListener(bindEvent, bindFunction);
 
-		$icon.insertAfter($this);
+		icon.setAttribute('class', `${iconClasses.default} ${iconClasses.closed}`);
 	}
 });
