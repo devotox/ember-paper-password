@@ -3,8 +3,8 @@
 [![Coverage Status](https://codecov.io/gh/devotox/ember-paper-password/branch/master/graph/badge.svg)](https://codecov.io/gh/devotox/ember-paper-password)
 [![NPM Version](https://badge.fury.io/js/ember-paper-password.svg)](http://badge.fury.io/js/ember-paper-password)
 [![NPM Downloads](https://img.shields.io/npm/dm/ember-paper-password.svg)](https://www.npmjs.org/package/ember-paper-password)
-[![Dependency Status](https://david-dm.org/poetic/ember-paper-password.svg)](https://david-dm.org/poetic/ember-paper-password)
-[![DevDependency Status](https://david-dm.org/poetic/ember-paper-password/dev-status.svg)](https://david-dm.org/poetic/ember-paper-password#info=devDependencies)
+[![Dependency Status](https://david-dm.org/devotox/ember-paper-password.svg)](https://david-dm.org/devotox/ember-paper-password)
+[![DevDependency Status](https://david-dm.org/devotox/ember-paper-password/dev-status.svg)](https://david-dm.org/devotox/ember-paper-password#info=devDependencies)
 [![Greenkeeper](https://badges.greenkeeper.io/devotox/ember-paper-password.svg)](https://greenkeeper.io/)
 
 ember-paper-password
