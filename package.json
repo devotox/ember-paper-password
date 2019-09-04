@@ -67,7 +67,7 @@
     "ember-font-awesome": "4.0.0-rc.4",
     "ember-load-initializers": "2.1.0",
     "ember-maybe-import-regenerator": "0.1.6",
-    "ember-paper": "1.0.0-beta.25",
+    "ember-paper": "1.0.0-beta.26",
     "ember-promise-helpers": "1.0.9",
     "ember-qunit": "4.5.1",
     "ember-resolver": "5.2.1",
