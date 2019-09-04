@@ -1678,14 +1678,14 @@ babel-plugin-dynamic-import-node@^2.3.0:
   dependencies:
     object.assign "^4.1.0"
 
-babel-plugin-ember-modules-api-polyfill@^2.12.0:
+babel-plugin-ember-modules-api-polyfill@^2.12.0, babel-plugin-ember-modules-api-polyfill@^2.6.0:
   version "2.12.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-ember-modules-api-polyfill/-/babel-plugin-ember-modules-api-polyfill-2.12.0.tgz#a5e703205ba4e625a7fab9bb1aea64ef3222cf75"
   integrity sha512-ZQU4quX0TJ1yYyosPy5PFigKdCFEVHJ6H0b3hwjxekIP9CDwzk0OhQuKhCOPti+d52VWjjCjxu2BrXEih29mFw==
   dependencies:
     ember-rfc176-data "^0.3.12"
 
-babel-plugin-ember-modules-api-polyfill@^2.6.0, babel-plugin-ember-modules-api-polyfill@^2.9.0:
+babel-plugin-ember-modules-api-polyfill@^2.9.0:
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-ember-modules-api-polyfill/-/babel-plugin-ember-modules-api-polyfill-2.11.0.tgz#3a67bdeb05a929a96776b45fa784bd3798517acc"
   integrity sha512-S3bw77LglkWIstoF+hBLyRPyyNAUsdzqK6zLxktuM6EniVt06st/ikhPDUttMWixS2LNA+jnBfGerYO1D/VvDw==
@@ -2896,13 +2896,13 @@ browserslist@^4.0.0, browserslist@^4.4.1:
     node-releases "^1.1.23"
 
 browserslist@^4.6.0, browserslist@^4.6.6:
-  version "4.6.6"
-  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.6.6.tgz#6e4bf467cde520bc9dbdf3747dafa03531cec453"
-  integrity sha512-D2Nk3W9JL9Fp/gIcWei8LrERCS+eXu9AM5cfXA8WEZ84lFks+ARnZ0q/R69m2SV3Wjma83QDDPxsNKXUwdIsyA==
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.7.0.tgz#9ee89225ffc07db03409f2fee524dc8227458a17"
+  integrity sha512-9rGNDtnj+HaahxiVV38Gn8n8Lr8REKsel68v1sPFfIGEK6uSXTY3h9acgiT1dZVtOOUtifo/Dn8daDQ5dUgVsA==
   dependencies:
-    caniuse-lite "^1.0.30000984"
-    electron-to-chromium "^1.3.191"
-    node-releases "^1.1.25"
+    caniuse-lite "^1.0.30000989"
+    electron-to-chromium "^1.3.247"
+    node-releases "^1.1.29"
 
 bser@^2.0.0:
   version "2.1.0"
@@ -3078,12 +3078,12 @@ caniuse-api@^3.0.0:
     lodash.memoize "^4.1.2"
     lodash.uniq "^4.5.0"
 
-caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000844, caniuse-lite@^1.0.30000974:
+caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000974:
   version "1.0.30000978"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000978.tgz#1e3346c27fc46bce9ac1ccd77863153a263dde56"
   integrity sha512-H6gK6kxUzG6oAwg/Jal279z8pHw0BzrpZfwo/CA9FFm/vA0l8IhDfkZtepyJNE2Y4V6Dp3P3ubz6czby1/Mgsw==
 
-caniuse-lite@^1.0.30000984:
+caniuse-lite@^1.0.30000844, caniuse-lite@^1.0.30000989:
   version "1.0.30000989"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000989.tgz#b9193e293ccf7e4426c5245134b8f2a56c0ac4b9"
   integrity sha512-vrMcvSuMz16YY6GSVZ0dWDTJP8jqk3iFQ/Aq5iqblPwxSVVZI+zxDyTX0VPqtQsDnfdrBDcsmhgTEOh5R8Lbpw==
@@ -3925,7 +3925,7 @@ ee-first@1.1.1:
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
-electron-to-chromium@^1.3.150, electron-to-chromium@^1.3.191, electron-to-chromium@^1.3.47:
+electron-to-chromium@^1.3.150, electron-to-chromium@^1.3.247, electron-to-chromium@^1.3.47:
   version "1.3.252"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.252.tgz#5b6261965b564a0f4df0f1c86246487897017f52"
   integrity sha512-NWJ5TztDnjExFISZHFwpoJjMbLUifsNBnx7u2JI0gCw6SbKyQYYWWtBHasO/jPtHym69F4EZuTpRNGN11MT/jg==
@@ -4583,9 +4583,9 @@ ember-paper@1.0.0-beta.25:
     virtual-each "~0.6.0"
 
 ember-power-select@^2.3.3:
-  version "2.3.4"
-  resolved "https://registry.yarnpkg.com/ember-power-select/-/ember-power-select-2.3.4.tgz#5cd4284da55109a47e489c2302682ffb6ae71916"
-  integrity sha512-i3Y1NIb/aUEPcTg1SeF9Xv3YDFITqTghuf9X3CGZ1r/3KG+2oIugBeHU1kQWzzq12nDH7sfXPj7bacor+WdZSA==
+  version "2.3.5"
+  resolved "https://registry.yarnpkg.com/ember-power-select/-/ember-power-select-2.3.5.tgz#c702d5cf5b2c6c2fd422f0a8253e982cecbdd048"
+  integrity sha512-75QJklWSthm9gedcbpKC0ZALaQXEfKlIRRy5pb87GsXcykFn0rBgxlnGsITWO+IX9u2V0oojQPorIa/ZYKVd3Q==
   dependencies:
     ember-basic-dropdown "^1.1.0"
     ember-cli-babel "^7.7.3"
@@ -7717,7 +7717,7 @@ node-pre-gyp@^0.12.0:
     semver "^5.3.0"
     tar "^4"
 
-node-releases@^1.1.23, node-releases@^1.1.25:
+node-releases@^1.1.23, node-releases@^1.1.29:
   version "1.1.29"
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.29.tgz#86a57c6587a30ecd6726449e5d293466b0a0bb86"
   integrity sha512-R5bDhzh6I+tpi/9i2hrrvGJ3yKPYzlVOORDkXhnZuwi5D3q1I5w4vYy24PJXTcLk9Q0kws9TO77T75bcK8/ysQ==
@@ -8720,9 +8720,9 @@ regex-not@^1.0.0, regex-not@^1.0.2:
     safe-regex "^1.1.0"
 
 regexp-tree@^0.1.6:
-  version "0.1.12"
-  resolved "https://registry.yarnpkg.com/regexp-tree/-/regexp-tree-0.1.12.tgz#28eaaa6e66eeb3527c15108a3ff740d9e574e420"
-  integrity sha512-TsXZ8+cv2uxMEkLfgwO0E068gsNMLfuYwMMhiUxf0Kw2Vcgzq93vgl6wIlIYuPmfMqMjfQ9zAporiozqCnwLuQ==
+  version "0.1.13"
+  resolved "https://registry.yarnpkg.com/regexp-tree/-/regexp-tree-0.1.13.tgz#5b19ab9377edc68bc3679256840bb29afc158d7f"
+  integrity sha512-hwdV/GQY5F8ReLZWO+W1SRoN5YfpOKY6852+tBFcma72DKBIcHjPRIlIvQN35bCOljuAfP2G2iB0FC/w236mUw==
 
 regexpp@^2.0.1:
   version "2.0.1"
