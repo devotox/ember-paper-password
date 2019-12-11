@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "ember-cli-babel": "7.13.0",
-    "ember-cli-htmlbars": "4.1.0",
+    "ember-cli-htmlbars": "4.1.1",
     "ember-cli-password-strength": "2.0.0",
     "ember-cli-sass": "10.0.1"
   },
